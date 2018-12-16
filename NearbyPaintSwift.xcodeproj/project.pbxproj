@@ -1,0 +1,856 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		19A3F3A26E97FCD64764BB3F /* Pods_NearbyPaintSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D35BED88B0ED57B3C57437A /* Pods_NearbyPaintSwiftTests.framework */; };
+		42A6B0269F66763916D3BB79 /* Pods_NearbyPaintSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98A083D8E5496BFAB1D113D /* Pods_NearbyPaintSwift.framework */; };
+		971102AD21C5FB1700E2845C /* CaptureUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971102AC21C5FB1700E2845C /* CaptureUseCase.swift */; };
+		971102AF21C5FB4000E2845C /* NearbyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971102AE21C5FB4000E2845C /* NearbyUseCase.swift */; };
+		9737430121C6925400DBB258 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9737430021C6925400DBB258 /* Constant.swift */; };
+		BAACD53621B2CF2B004E4EF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD53521B2CF2B004E4EF6 /* AppDelegate.swift */; };
+		BAACD53821B2CF2B004E4EF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD53721B2CF2B004E4EF6 /* ViewController.swift */; };
+		BAACD53B21B2CF2B004E4EF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAACD53921B2CF2B004E4EF6 /* Main.storyboard */; };
+		BAACD53E21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAACD53C21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodeld */; };
+		BAACD54021B2CF2C004E4EF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAACD53F21B2CF2C004E4EF6 /* Assets.xcassets */; };
+		BAACD54321B2CF2C004E4EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAACD54121B2CF2C004E4EF6 /* LaunchScreen.storyboard */; };
+		BAACD54E21B2CF2C004E4EF6 /* NearbyPaintSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD54D21B2CF2C004E4EF6 /* NearbyPaintSwiftTests.swift */; };
+		BAACD55921B2CF2C004E4EF6 /* NearbyPaintSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD55821B2CF2C004E4EF6 /* NearbyPaintSwiftUITests.swift */; };
+		BAACD56C21B2D303004E4EF6 /* PaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD56B21B2D303004E4EF6 /* PaintView.swift */; };
+		BAACD56E21B2D741004E4EF6 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD56D21B2D741004E4EF6 /* Line.swift */; };
+		BAACD57021B2D8FE004E4EF6 /* PaintData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD56F21B2D8FE004E4EF6 /* PaintData.swift */; };
+		F6D43398FDA64FB1A3BEE3D8 /* Pods_NearbyPaintSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30759E44DD3ACB5D0A2E58 /* Pods_NearbyPaintSwiftUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BAACD54A21B2CF2C004E4EF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAACD52A21B2CF2B004E4EF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAACD53121B2CF2B004E4EF6;
+			remoteInfo = NearbyPaintSwift;
+		};
+		BAACD55521B2CF2C004E4EF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAACD52A21B2CF2B004E4EF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAACD53121B2CF2B004E4EF6;
+			remoteInfo = NearbyPaintSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D35BED88B0ED57B3C57437A /* Pods_NearbyPaintSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPaintSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D30BCE16DCB0E3F892ECD8A /* Pods-NearbyPaintSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPaintSwiftUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPaintSwiftUITests/Pods-NearbyPaintSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B30759E44DD3ACB5D0A2E58 /* Pods_NearbyPaintSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPaintSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		971102AC21C5FB1700E2845C /* CaptureUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureUseCase.swift; sourceTree = "<group>"; };
+		971102AE21C5FB4000E2845C /* NearbyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyUseCase.swift; sourceTree = "<group>"; };
+		9737430021C6925400DBB258 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		BAACD53221B2CF2B004E4EF6 /* NearbyPaintSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyPaintSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAACD53521B2CF2B004E4EF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BAACD53721B2CF2B004E4EF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BAACD53A21B2CF2B004E4EF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BAACD53D21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NearbyPaintSwift.xcdatamodel; sourceTree = "<group>"; };
+		BAACD53F21B2CF2C004E4EF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BAACD54221B2CF2C004E4EF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BAACD54421B2CF2C004E4EF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAACD54921B2CF2C004E4EF6 /* NearbyPaintSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearbyPaintSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAACD54D21B2CF2C004E4EF6 /* NearbyPaintSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPaintSwiftTests.swift; sourceTree = "<group>"; };
+		BAACD54F21B2CF2C004E4EF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAACD55421B2CF2C004E4EF6 /* NearbyPaintSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearbyPaintSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAACD55821B2CF2C004E4EF6 /* NearbyPaintSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPaintSwiftUITests.swift; sourceTree = "<group>"; };
+		BAACD55A21B2CF2C004E4EF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAACD56B21B2D303004E4EF6 /* PaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintView.swift; sourceTree = "<group>"; };
+		BAACD56D21B2D741004E4EF6 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		BAACD56F21B2D8FE004E4EF6 /* PaintData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintData.swift; sourceTree = "<group>"; };
+		BAACD57121B36C29004E4EF6 /* NearbyPaint-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NearbyPaint-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0F1A2E36BF52BBEE72F0EF7 /* Pods-NearbyPaintSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPaintSwiftUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPaintSwiftUITests/Pods-NearbyPaintSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D4595F92BA2F76A9C6D9DBC9 /* Pods-NearbyPaintSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPaintSwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPaintSwiftTests/Pods-NearbyPaintSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E58F39CE867CD09C6BAB2E95 /* Pods-NearbyPaintSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPaintSwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPaintSwiftTests/Pods-NearbyPaintSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		E67AD13C5254AAC771AAD480 /* Pods-NearbyPaintSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPaintSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPaintSwift/Pods-NearbyPaintSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		E98A083D8E5496BFAB1D113D /* Pods_NearbyPaintSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPaintSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB695609AD6235512F509576 /* Pods-NearbyPaintSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPaintSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPaintSwift/Pods-NearbyPaintSwift.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BAACD52F21B2CF2B004E4EF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42A6B0269F66763916D3BB79 /* Pods_NearbyPaintSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAACD54621B2CF2C004E4EF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19A3F3A26E97FCD64764BB3F /* Pods_NearbyPaintSwiftTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAACD55121B2CF2C004E4EF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6D43398FDA64FB1A3BEE3D8 /* Pods_NearbyPaintSwiftUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		095DB984422558A747B1817F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E98A083D8E5496BFAB1D113D /* Pods_NearbyPaintSwift.framework */,
+				0D35BED88B0ED57B3C57437A /* Pods_NearbyPaintSwiftTests.framework */,
+				8B30759E44DD3ACB5D0A2E58 /* Pods_NearbyPaintSwiftUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65D566E1BE24389C6CFD10D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E67AD13C5254AAC771AAD480 /* Pods-NearbyPaintSwift.debug.xcconfig */,
+				EB695609AD6235512F509576 /* Pods-NearbyPaintSwift.release.xcconfig */,
+				D4595F92BA2F76A9C6D9DBC9 /* Pods-NearbyPaintSwiftTests.debug.xcconfig */,
+				E58F39CE867CD09C6BAB2E95 /* Pods-NearbyPaintSwiftTests.release.xcconfig */,
+				6D30BCE16DCB0E3F892ECD8A /* Pods-NearbyPaintSwiftUITests.debug.xcconfig */,
+				C0F1A2E36BF52BBEE72F0EF7 /* Pods-NearbyPaintSwiftUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		971102AB21C5FAA200E2845C /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				971102AC21C5FB1700E2845C /* CaptureUseCase.swift */,
+				971102AE21C5FB4000E2845C /* NearbyUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		BAACD52921B2CF2B004E4EF6 = {
+			isa = PBXGroup;
+			children = (
+				BAACD57121B36C29004E4EF6 /* NearbyPaint-Bridging-Header.h */,
+				BAACD53421B2CF2B004E4EF6 /* NearbyPaintSwift */,
+				BAACD54C21B2CF2C004E4EF6 /* NearbyPaintSwiftTests */,
+				BAACD55721B2CF2C004E4EF6 /* NearbyPaintSwiftUITests */,
+				BAACD53321B2CF2B004E4EF6 /* Products */,
+				65D566E1BE24389C6CFD10D3 /* Pods */,
+				095DB984422558A747B1817F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BAACD53321B2CF2B004E4EF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAACD53221B2CF2B004E4EF6 /* NearbyPaintSwift.app */,
+				BAACD54921B2CF2C004E4EF6 /* NearbyPaintSwiftTests.xctest */,
+				BAACD55421B2CF2C004E4EF6 /* NearbyPaintSwiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAACD53421B2CF2B004E4EF6 /* NearbyPaintSwift */ = {
+			isa = PBXGroup;
+			children = (
+				BAACD56621B2D0E1004E4EF6 /* Presentation */,
+				BAACD56721B2D22D004E4EF6 /* Domain */,
+				BAACD56821B2D241004E4EF6 /* Data */,
+				BAACD53521B2CF2B004E4EF6 /* AppDelegate.swift */,
+				9737430021C6925400DBB258 /* Constant.swift */,
+				BAACD53921B2CF2B004E4EF6 /* Main.storyboard */,
+				BAACD53F21B2CF2C004E4EF6 /* Assets.xcassets */,
+				BAACD54121B2CF2C004E4EF6 /* LaunchScreen.storyboard */,
+				BAACD54421B2CF2C004E4EF6 /* Info.plist */,
+				BAACD53C21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodeld */,
+			);
+			path = NearbyPaintSwift;
+			sourceTree = "<group>";
+		};
+		BAACD54C21B2CF2C004E4EF6 /* NearbyPaintSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				BAACD54D21B2CF2C004E4EF6 /* NearbyPaintSwiftTests.swift */,
+				BAACD54F21B2CF2C004E4EF6 /* Info.plist */,
+			);
+			path = NearbyPaintSwiftTests;
+			sourceTree = "<group>";
+		};
+		BAACD55721B2CF2C004E4EF6 /* NearbyPaintSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BAACD55821B2CF2C004E4EF6 /* NearbyPaintSwiftUITests.swift */,
+				BAACD55A21B2CF2C004E4EF6 /* Info.plist */,
+			);
+			path = NearbyPaintSwiftUITests;
+			sourceTree = "<group>";
+		};
+		BAACD56621B2D0E1004E4EF6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				BAACD56A21B2D2AB004E4EF6 /* ViewController */,
+				BAACD56921B2D2A2004E4EF6 /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BAACD56721B2D22D004E4EF6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				971102AB21C5FAA200E2845C /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		BAACD56821B2D241004E4EF6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BAACD56921B2D2A2004E4EF6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BAACD56B21B2D303004E4EF6 /* PaintView.swift */,
+				BAACD56D21B2D741004E4EF6 /* Line.swift */,
+				BAACD56F21B2D8FE004E4EF6 /* PaintData.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAACD56A21B2D2AB004E4EF6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BAACD53721B2CF2B004E4EF6 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BAACD53121B2CF2B004E4EF6 /* NearbyPaintSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAACD55D21B2CF2C004E4EF6 /* Build configuration list for PBXNativeTarget "NearbyPaintSwift" */;
+			buildPhases = (
+				89CF09B9CC6D02413EE5DC82 /* [CP] Check Pods Manifest.lock */,
+				BAACD52E21B2CF2B004E4EF6 /* Sources */,
+				BAACD52F21B2CF2B004E4EF6 /* Frameworks */,
+				BAACD53021B2CF2B004E4EF6 /* Resources */,
+				BBFFBA791DC9E5515CE13627 /* [CP] Embed Pods Frameworks */,
+				F02E9003BD791904D94A7FC7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NearbyPaintSwift;
+			productName = NearbyPaintSwift;
+			productReference = BAACD53221B2CF2B004E4EF6 /* NearbyPaintSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BAACD54821B2CF2C004E4EF6 /* NearbyPaintSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAACD56021B2CF2C004E4EF6 /* Build configuration list for PBXNativeTarget "NearbyPaintSwiftTests" */;
+			buildPhases = (
+				BA7788FC637B77AD5EDAC5E6 /* [CP] Check Pods Manifest.lock */,
+				BAACD54521B2CF2C004E4EF6 /* Sources */,
+				BAACD54621B2CF2C004E4EF6 /* Frameworks */,
+				BAACD54721B2CF2C004E4EF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BAACD54B21B2CF2C004E4EF6 /* PBXTargetDependency */,
+			);
+			name = NearbyPaintSwiftTests;
+			productName = NearbyPaintSwiftTests;
+			productReference = BAACD54921B2CF2C004E4EF6 /* NearbyPaintSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BAACD55321B2CF2C004E4EF6 /* NearbyPaintSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAACD56321B2CF2C004E4EF6 /* Build configuration list for PBXNativeTarget "NearbyPaintSwiftUITests" */;
+			buildPhases = (
+				95CACA2EEB7FB1D0C1E1FB2E /* [CP] Check Pods Manifest.lock */,
+				BAACD55021B2CF2C004E4EF6 /* Sources */,
+				BAACD55121B2CF2C004E4EF6 /* Frameworks */,
+				BAACD55221B2CF2C004E4EF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BAACD55621B2CF2C004E4EF6 /* PBXTargetDependency */,
+			);
+			name = NearbyPaintSwiftUITests;
+			productName = NearbyPaintSwiftUITests;
+			productReference = BAACD55421B2CF2C004E4EF6 /* NearbyPaintSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BAACD52A21B2CF2B004E4EF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "yuji shimada";
+				TargetAttributes = {
+					BAACD53121B2CF2B004E4EF6 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					BAACD54821B2CF2C004E4EF6 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = BAACD53121B2CF2B004E4EF6;
+					};
+					BAACD55321B2CF2C004E4EF6 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = BAACD53121B2CF2B004E4EF6;
+					};
+				};
+			};
+			buildConfigurationList = BAACD52D21B2CF2B004E4EF6 /* Build configuration list for PBXProject "NearbyPaintSwift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BAACD52921B2CF2B004E4EF6;
+			productRefGroup = BAACD53321B2CF2B004E4EF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BAACD53121B2CF2B004E4EF6 /* NearbyPaintSwift */,
+				BAACD54821B2CF2C004E4EF6 /* NearbyPaintSwiftTests */,
+				BAACD55321B2CF2C004E4EF6 /* NearbyPaintSwiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BAACD53021B2CF2B004E4EF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAACD54321B2CF2C004E4EF6 /* LaunchScreen.storyboard in Resources */,
+				BAACD54021B2CF2C004E4EF6 /* Assets.xcassets in Resources */,
+				BAACD53B21B2CF2B004E4EF6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAACD54721B2CF2C004E4EF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAACD55221B2CF2C004E4EF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		89CF09B9CC6D02413EE5DC82 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NearbyPaintSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95CACA2EEB7FB1D0C1E1FB2E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NearbyPaintSwiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA7788FC637B77AD5EDAC5E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NearbyPaintSwiftTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBFFBA791DC9E5515CE13627 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NearbyPaintSwift/Pods-NearbyPaintSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearbyPaintSwift/Pods-NearbyPaintSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02E9003BD791904D94A7FC7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NearbyPaintSwift/Pods-NearbyPaintSwift-resources.sh",
+				"${PODS_ROOT}/NearbyMessages/Resources/resources/GNSSharedResources.bundle",
+				"${PODS_ROOT}/NearbyMessages/Resources/resources/ic_expand_more.xcassets",
+				"${PODS_ROOT}/NearbyMessages/Resources/resources/ic_nearby_48pt.xcassets",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GNSSharedResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearbyPaintSwift/Pods-NearbyPaintSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BAACD52E21B2CF2B004E4EF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				971102AF21C5FB4000E2845C /* NearbyUseCase.swift in Sources */,
+				971102AD21C5FB1700E2845C /* CaptureUseCase.swift in Sources */,
+				9737430121C6925400DBB258 /* Constant.swift in Sources */,
+				BAACD53821B2CF2B004E4EF6 /* ViewController.swift in Sources */,
+				BAACD56C21B2D303004E4EF6 /* PaintView.swift in Sources */,
+				BAACD53E21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodeld in Sources */,
+				BAACD53621B2CF2B004E4EF6 /* AppDelegate.swift in Sources */,
+				BAACD57021B2D8FE004E4EF6 /* PaintData.swift in Sources */,
+				BAACD56E21B2D741004E4EF6 /* Line.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAACD54521B2CF2C004E4EF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAACD54E21B2CF2C004E4EF6 /* NearbyPaintSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAACD55021B2CF2C004E4EF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAACD55921B2CF2C004E4EF6 /* NearbyPaintSwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BAACD54B21B2CF2C004E4EF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BAACD53121B2CF2B004E4EF6 /* NearbyPaintSwift */;
+			targetProxy = BAACD54A21B2CF2C004E4EF6 /* PBXContainerItemProxy */;
+		};
+		BAACD55621B2CF2C004E4EF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BAACD53121B2CF2B004E4EF6 /* NearbyPaintSwift */;
+			targetProxy = BAACD55521B2CF2C004E4EF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BAACD53921B2CF2B004E4EF6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAACD53A21B2CF2B004E4EF6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BAACD54121B2CF2C004E4EF6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAACD54221B2CF2C004E4EF6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BAACD55B21B2CF2C004E4EF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BAACD55C21B2CF2C004E4EF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BAACD55E21B2CF2C004E4EF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E67AD13C5254AAC771AAD480 /* Pods-NearbyPaintSwift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = YVYVV5ZB3C;
+				INFOPLIST_FILE = NearbyPaintSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ys.NearbyPaintSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "YS Wildcard Profile";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT)/NearbyPaint-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BAACD55F21B2CF2C004E4EF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB695609AD6235512F509576 /* Pods-NearbyPaintSwift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NearbyPaintSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ys.NearbyPaintSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT)/NearbyPaint-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BAACD56121B2CF2C004E4EF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4595F92BA2F76A9C6D9DBC9 /* Pods-NearbyPaintSwiftTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVYVV5ZB3C;
+				INFOPLIST_FILE = NearbyPaintSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ys.NearbyPaintSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearbyPaintSwift.app/NearbyPaintSwift";
+			};
+			name = Debug;
+		};
+		BAACD56221B2CF2C004E4EF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E58F39CE867CD09C6BAB2E95 /* Pods-NearbyPaintSwiftTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVYVV5ZB3C;
+				INFOPLIST_FILE = NearbyPaintSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ys.NearbyPaintSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearbyPaintSwift.app/NearbyPaintSwift";
+			};
+			name = Release;
+		};
+		BAACD56421B2CF2C004E4EF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D30BCE16DCB0E3F892ECD8A /* Pods-NearbyPaintSwiftUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVYVV5ZB3C;
+				INFOPLIST_FILE = NearbyPaintSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ys.NearbyPaintSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NearbyPaintSwift;
+			};
+			name = Debug;
+		};
+		BAACD56521B2CF2C004E4EF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0F1A2E36BF52BBEE72F0EF7 /* Pods-NearbyPaintSwiftUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVYVV5ZB3C;
+				INFOPLIST_FILE = NearbyPaintSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ys.NearbyPaintSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NearbyPaintSwift;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BAACD52D21B2CF2B004E4EF6 /* Build configuration list for PBXProject "NearbyPaintSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAACD55B21B2CF2C004E4EF6 /* Debug */,
+				BAACD55C21B2CF2C004E4EF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAACD55D21B2CF2C004E4EF6 /* Build configuration list for PBXNativeTarget "NearbyPaintSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAACD55E21B2CF2C004E4EF6 /* Debug */,
+				BAACD55F21B2CF2C004E4EF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAACD56021B2CF2C004E4EF6 /* Build configuration list for PBXNativeTarget "NearbyPaintSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAACD56121B2CF2C004E4EF6 /* Debug */,
+				BAACD56221B2CF2C004E4EF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAACD56321B2CF2C004E4EF6 /* Build configuration list for PBXNativeTarget "NearbyPaintSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAACD56421B2CF2C004E4EF6 /* Debug */,
+				BAACD56521B2CF2C004E4EF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BAACD53C21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BAACD53D21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodel */,
+			);
+			currentVersion = BAACD53D21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodel */;
+			path = NearbyPaintSwift.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BAACD52A21B2CF2B004E4EF6 /* Project object */;
+}

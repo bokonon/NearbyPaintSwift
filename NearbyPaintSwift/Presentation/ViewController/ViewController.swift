@@ -16,12 +16,34 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
     
     @IBOutlet weak var paintView: PaintView!
     
-    @IBAction func didClear(_ sender: Any) {
+    private static let UserDefaultThicnessKey = "thickness"
+    
+    @IBAction func onTappedClear(_ sender: Any) {
         paintView.clearView()
-        nearbyUseCase.publish(paintData: PaintData(width: 0, height: 0, points: [], eraser: 1))
+        nearbyUseCase.publish(paintData: PaintData(width: 0, height: 0, points: [], eraser: 1, thickness: 0, red: 0, green: 0, blue: 0, alpha: 0))
     }
     
-    @IBAction func didSave(_ sender: Any) {
+    @IBAction func onTappedBrush(_ sender: Any) {
+        addThickness(value: 1)
+    }
+    
+    @IBAction func onTappedBrushThin(_ sender: Any) {
+        addThickness(value: -1)
+    }
+    
+    @IBAction func onTappedSquare(_ sender: Any) {
+        paintView.setElementMode(elementMode: .MODE_STAMP_SQUARE)
+    }
+    
+    @IBAction func onTappedRectangle(_ sender: Any) {
+        paintView.setElementMode(elementMode: .MODE_STAMP_RECTANGLE)
+    }
+    
+    @IBAction func onTappedEraser(_ sender: Any) {
+        paintView.setElementMode(elementMode: .MODE_ERASER)
+    }
+    
+    @IBAction func onTappedSave(_ sender: Any) {
         if let image = paintView.getCapture() {
             captureUseCase.capture(image: image)
         }
@@ -34,8 +56,11 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        paintView.setDelegate(delegate: self)
-        nearbyUseCase.setDelegate(delegate: self)
+        UserDefaults.standard.register(defaults: [ViewController.UserDefaultThicnessKey : 2])
+        let thickness = UserDefaults.standard.integer(forKey: ViewController.UserDefaultThicnessKey)
+        paintView.thickness = thickness
+        paintView.delegate = self
+        nearbyUseCase.delegate = self
         nearbyUseCase.subscribe()
     }
     
@@ -55,5 +80,10 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
         nearbyUseCase.publish(paintData: paintData)
     }
     
+    private func addThickness(value: Int) {
+        paintView.setElementMode(elementMode: .MODE_LINE)
+        let thickness = paintView.addThickness(value: value)
+        UserDefaults.standard.set(thickness, forKey: ViewController.UserDefaultThicnessKey)
+    }
+    
 }
-

@@ -11,7 +11,8 @@
 		42A6B0269F66763916D3BB79 /* Pods_NearbyPaintSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98A083D8E5496BFAB1D113D /* Pods_NearbyPaintSwift.framework */; };
 		971102AD21C5FB1700E2845C /* CaptureUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971102AC21C5FB1700E2845C /* CaptureUseCase.swift */; };
 		971102AF21C5FB4000E2845C /* NearbyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971102AE21C5FB4000E2845C /* NearbyUseCase.swift */; };
-		9737430121C6925400DBB258 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9737430021C6925400DBB258 /* Constant.swift */; };
+		97D697E921CF53EB002D98FC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D697E821CF53EB002D98FC /* Constant.swift */; };
+		97D697EB21CF858A002D98FC /* ElementMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D697EA21CF858A002D98FC /* ElementMode.swift */; };
 		BAACD53621B2CF2B004E4EF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD53521B2CF2B004E4EF6 /* AppDelegate.swift */; };
 		BAACD53821B2CF2B004E4EF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD53721B2CF2B004E4EF6 /* ViewController.swift */; };
 		BAACD53B21B2CF2B004E4EF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAACD53921B2CF2B004E4EF6 /* Main.storyboard */; };
@@ -49,7 +50,8 @@
 		8B30759E44DD3ACB5D0A2E58 /* Pods_NearbyPaintSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPaintSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971102AC21C5FB1700E2845C /* CaptureUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureUseCase.swift; sourceTree = "<group>"; };
 		971102AE21C5FB4000E2845C /* NearbyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyUseCase.swift; sourceTree = "<group>"; };
-		9737430021C6925400DBB258 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		97D697E821CF53EB002D98FC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		97D697EA21CF858A002D98FC /* ElementMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementMode.swift; sourceTree = "<group>"; };
 		BAACD53221B2CF2B004E4EF6 /* NearbyPaintSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyPaintSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAACD53521B2CF2B004E4EF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAACD53721B2CF2B004E4EF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +168,7 @@
 				BAACD56721B2D22D004E4EF6 /* Domain */,
 				BAACD56821B2D241004E4EF6 /* Data */,
 				BAACD53521B2CF2B004E4EF6 /* AppDelegate.swift */,
-				9737430021C6925400DBB258 /* Constant.swift */,
+				97D697E821CF53EB002D98FC /* Constant.swift */,
 				BAACD53921B2CF2B004E4EF6 /* Main.storyboard */,
 				BAACD53F21B2CF2C004E4EF6 /* Assets.xcassets */,
 				BAACD54121B2CF2C004E4EF6 /* LaunchScreen.storyboard */,
@@ -224,6 +226,7 @@
 				BAACD56B21B2D303004E4EF6 /* PaintView.swift */,
 				BAACD56D21B2D741004E4EF6 /* Line.swift */,
 				BAACD56F21B2D8FE004E4EF6 /* PaintData.swift */,
+				97D697EA21CF858A002D98FC /* ElementMode.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,11 +493,12 @@
 			files = (
 				971102AF21C5FB4000E2845C /* NearbyUseCase.swift in Sources */,
 				971102AD21C5FB1700E2845C /* CaptureUseCase.swift in Sources */,
-				9737430121C6925400DBB258 /* Constant.swift in Sources */,
+				97D697E921CF53EB002D98FC /* Constant.swift in Sources */,
 				BAACD53821B2CF2B004E4EF6 /* ViewController.swift in Sources */,
 				BAACD56C21B2D303004E4EF6 /* PaintView.swift in Sources */,
 				BAACD53E21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodeld in Sources */,
 				BAACD53621B2CF2B004E4EF6 /* AppDelegate.swift in Sources */,
+				97D697EB21CF858A002D98FC /* ElementMode.swift in Sources */,
 				BAACD57021B2D8FE004E4EF6 /* PaintData.swift in Sources */,
 				BAACD56E21B2D741004E4EF6 /* Line.swift in Sources */,
 			);

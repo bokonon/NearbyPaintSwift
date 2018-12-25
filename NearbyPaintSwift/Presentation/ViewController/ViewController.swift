@@ -16,6 +16,10 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
     
     @IBOutlet weak var paintView: PaintView!
     
+    @IBOutlet weak var thicknessNumberLabel: DisappearLabel!
+    
+    @IBOutlet weak var captureResultLabel: DisappearLabel!
+    
     private static let UserDefaultThicnessKey = "thickness"
     
     @IBAction func onTappedClear(_ sender: Any) {
@@ -45,7 +49,16 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
     
     @IBAction func onTappedSave(_ sender: Any) {
         if let image = paintView.getCapture() {
-            captureUseCase.capture(image: image)
+            captureUseCase.capture(image: image, sender: self, action: #selector(saveImageComplete(_:didFinishSavingWithError:contextInfo:)))
+        }
+    }
+    
+    @objc func saveImageComplete(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if error != nil {
+            print(error!.localizedDescription)
+            captureResultLabel.text = "Capture failed"
+        } else {
+            captureResultLabel.text = "Capture success"
         }
     }
     
@@ -58,6 +71,7 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
         
         UserDefaults.standard.register(defaults: [ViewController.UserDefaultThicnessKey : 2])
         let thickness = UserDefaults.standard.integer(forKey: ViewController.UserDefaultThicnessKey)
+        thicknessNumberLabel.text = String(thickness)
         paintView.thickness = thickness
         paintView.delegate = self
         nearbyUseCase.delegate = self
@@ -83,6 +97,7 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
     private func addThickness(value: Int) {
         paintView.setElementMode(elementMode: .MODE_LINE)
         let thickness = paintView.addThickness(value: value)
+        thicknessNumberLabel.text = String(thickness)
         UserDefaults.standard.set(thickness, forKey: ViewController.UserDefaultThicnessKey)
     }
     

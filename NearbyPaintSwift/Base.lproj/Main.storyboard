@@ -20,7 +20,34 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oZ-gt-vMn" customClass="PaintView" customModule="NearbyPaintSwift" customModuleProvider="target">
                                 <rect key="frame" x="16" y="28" width="343" height="561"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IB-k1-Psf" customClass="DisappearLabel" customModule="NearbyPaintSwift" customModuleProvider="target">
+                                        <rect key="frame" x="171.5" y="280.5" width="0.0" height="0.0"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture success" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-pM-OzU" customClass="DisappearLabel" customModule="NearbyPaintSwift" customModuleProvider="target">
+                                        <rect key="frame" x="92" y="498.5" width="159.5" height="26.5"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="disappearDuration">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fgg-pM-OzU" secondAttribute="bottom" constant="36" id="Mcm-Gu-oU5"/>
+                                    <constraint firstItem="6IB-k1-Psf" firstAttribute="centerY" secondItem="5oZ-gt-vMn" secondAttribute="centerY" id="PHQ-kv-UOh"/>
+                                    <constraint firstItem="6IB-k1-Psf" firstAttribute="centerX" secondItem="5oZ-gt-vMn" secondAttribute="centerX" id="gIu-zl-esZ"/>
+                                    <constraint firstItem="fgg-pM-OzU" firstAttribute="centerX" secondItem="5oZ-gt-vMn" secondAttribute="centerX" id="iMI-p4-iNk"/>
+                                </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOT-IQ-Lg9">
                                 <rect key="frame" x="16" y="597" width="343" height="60"/>
@@ -114,7 +141,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="captureResultLabel" destination="fgg-pM-OzU" id="Pii-FK-ad6"/>
                         <outlet property="paintView" destination="5oZ-gt-vMn" id="ke7-1F-QLB"/>
+                        <outlet property="thicknessNumberLabel" destination="6IB-k1-Psf" id="nE6-Kr-AxA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

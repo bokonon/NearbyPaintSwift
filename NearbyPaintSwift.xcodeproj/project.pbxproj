@@ -13,6 +13,7 @@
 		971102AF21C5FB4000E2845C /* NearbyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971102AE21C5FB4000E2845C /* NearbyUseCase.swift */; };
 		97D697E921CF53EB002D98FC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D697E821CF53EB002D98FC /* Constant.swift */; };
 		97D697EB21CF858A002D98FC /* ElementMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D697EA21CF858A002D98FC /* ElementMode.swift */; };
+		97D697ED21D12941002D98FC /* DisappearLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D697EC21D12941002D98FC /* DisappearLabel.swift */; };
 		BAACD53621B2CF2B004E4EF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD53521B2CF2B004E4EF6 /* AppDelegate.swift */; };
 		BAACD53821B2CF2B004E4EF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAACD53721B2CF2B004E4EF6 /* ViewController.swift */; };
 		BAACD53B21B2CF2B004E4EF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAACD53921B2CF2B004E4EF6 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		971102AE21C5FB4000E2845C /* NearbyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyUseCase.swift; sourceTree = "<group>"; };
 		97D697E821CF53EB002D98FC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		97D697EA21CF858A002D98FC /* ElementMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementMode.swift; sourceTree = "<group>"; };
+		97D697EC21D12941002D98FC /* DisappearLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisappearLabel.swift; sourceTree = "<group>"; };
 		BAACD53221B2CF2B004E4EF6 /* NearbyPaintSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyPaintSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAACD53521B2CF2B004E4EF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAACD53721B2CF2B004E4EF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				BAACD56D21B2D741004E4EF6 /* Line.swift */,
 				BAACD56F21B2D8FE004E4EF6 /* PaintData.swift */,
 				97D697EA21CF858A002D98FC /* ElementMode.swift */,
+				97D697EC21D12941002D98FC /* DisappearLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				971102AF21C5FB4000E2845C /* NearbyUseCase.swift in Sources */,
 				971102AD21C5FB1700E2845C /* CaptureUseCase.swift in Sources */,
 				97D697E921CF53EB002D98FC /* Constant.swift in Sources */,
+				97D697ED21D12941002D98FC /* DisappearLabel.swift in Sources */,
 				BAACD53821B2CF2B004E4EF6 /* ViewController.swift in Sources */,
 				BAACD56C21B2D303004E4EF6 /* PaintView.swift in Sources */,
 				BAACD53E21B2CF2B004E4EF6 /* NearbyPaintSwift.xcdatamodeld in Sources */,

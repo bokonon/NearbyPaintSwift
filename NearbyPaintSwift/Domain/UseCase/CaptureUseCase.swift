@@ -10,13 +10,8 @@ import UIKit
 
 class CaptureUseCase: NSObject {
     
-    func capture(image: UIImage) {
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveImageComplete(_:didFinishSavingWithError:contextInfo:)), nil)
+    func capture(image: UIImage, sender: Any, action: Selector) {
+        UIImageWriteToSavedPhotosAlbum(image, sender, action, nil)
     }
     
-    @objc func saveImageComplete(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        if error != nil {
-            print(error!)
-        }
-    }
 }

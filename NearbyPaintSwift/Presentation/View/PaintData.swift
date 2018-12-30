@@ -15,9 +15,11 @@ class PaintData {
     
     var canvasHeight: Int
     
-    var points: [CGPoint]
+    var clearFlg: Int
     
-    var eraserFlg: Int
+    var elementMode: Int
+    
+    var points: [CGPoint]
     
     var thickness: Int
     
@@ -29,11 +31,12 @@ class PaintData {
     var alpha: CGFloat
     
     // init paint data
-    init(width: Int, height: Int, points: [CGPoint], eraser: Int, thickness: Int, color: CGColor) {
+    init(width: Int, height: Int, clearFlg: Int, elementMode: Int, points: [CGPoint], thickness: Int, color: CGColor) {
         self.canvasWidth = width
         self.canvasHeight = height
+        self.clearFlg = clearFlg
+        self.elementMode = elementMode
         self.points = points
-        self.eraserFlg = eraser
         self.thickness = thickness
         
         self.color = color
@@ -51,11 +54,12 @@ class PaintData {
         self.alpha = self.alpha * 255.0
     }
     
-    init(width: Int, height: Int, points: [CGPoint], eraser: Int, thickness: Int, red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+    init(width: Int, height: Int, clearFlg: Int, elementMode: Int, points: [CGPoint], thickness: Int, red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         self.canvasWidth = width
         self.canvasHeight = height
+        self.clearFlg = clearFlg
+        self.elementMode = elementMode
         self.points = points
-        self.eraserFlg = eraser
         self.thickness = thickness
         
         self.red = red

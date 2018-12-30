@@ -50,7 +50,7 @@ class PaintView: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         downPoint = touches.first!.location(in: self)
-        currentLine = Line(color: brushColor, width: CGFloat(thickness))
+        currentLine = Line(elementMode: elementMode, color: brushColor, width: CGFloat(thickness))
         
         switch elementMode {
         case .MODE_ERASER:
@@ -90,7 +90,7 @@ class PaintView: UIView {
         if currentLine?.points.count ?? 0 > 1 {
             lines.append(currentLine!)
             
-            let paintData = PaintData(width: frameWidth, height: frameHeight, points: (currentLine?.points)!, eraser: 0, thickness: Int(currentLine!.width), color: brushColor)
+            let paintData = PaintData(width: frameWidth, height: frameHeight, clearFlg: 0, elementMode: elementMode.rawValue, points: (currentLine?.points)!, thickness: Int(currentLine!.width), color: brushColor)
             // post data
             delegate?.onDrawEnd(paintData: paintData)
         }
@@ -99,44 +99,27 @@ class PaintView: UIView {
         self.setNeedsDisplay()
     }
     
-    func resetContext(context: CGContext) {
-        context.clear(self.bounds)
-        if let color = self.backgroundColor {
-            color.setFill()
-        } else {
-            UIColor.white.setFill()
-        }
-        context.fill(self.bounds)
-    }
-    
     // draw
     override func draw(_ rect: CGRect) {
-        
-        let context = UIGraphicsGetCurrentContext()
-        
-        // reset
-        resetContext(context: context!)
-        
         // drawn lines
         for line in lines {
-            line.drawOnContext(context: context!)
+            line.draw()
         }
-        
         // current line
         if let line = currentLine {
-            line.drawOnContext(context: context!)
+            line.draw()
         }
     }
     
     func updateView(paintData: PaintData) {
         
         // eraser
-        if paintData.eraserFlg == 1 {
+        if paintData.clearFlg == 1 {
             clearView()
             return
         }
         
-        let line = Line(color: paintData.color, width: CGFloat(paintData.thickness))
+        let line = Line(elementMode: ElementMode(rawValue: paintData.elementMode) ?? .MODE_LINE, color: paintData.color, width: CGFloat(paintData.thickness))
         
         for point in paintData.points {
             line.points.append(CGPoint(

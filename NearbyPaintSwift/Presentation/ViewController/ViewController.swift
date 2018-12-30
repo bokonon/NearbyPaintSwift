@@ -24,7 +24,7 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
     
     @IBAction func onTappedClear(_ sender: Any) {
         paintView.clearView()
-        nearbyUseCase.publish(paintData: PaintData(width: 0, height: 0, points: [], eraser: 1, thickness: 0, red: 0, green: 0, blue: 0, alpha: 0))
+        nearbyUseCase.publish(paintData: PaintData(width: 0, height: 0, clearFlg: 1, elementMode: 0, points: [], thickness: 0, red: 0, green: 0, blue: 0, alpha: 0))
     }
     
     @IBAction func onTappedBrush(_ sender: Any) {
@@ -56,7 +56,7 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
     @objc func saveImageComplete(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if error != nil {
             print(error!.localizedDescription)
-            captureResultLabel.text = "Capture failed"
+            captureResultLabel.text = "Capture failed :" + error!.localizedDescription
         } else {
             captureResultLabel.text = "Capture success"
         }

@@ -41,8 +41,9 @@ class NearbyUseCase {
         let dict: [String: AnyObject] = [
             "canvasWidth": paintData.canvasWidth as AnyObject,
             "canvasHeight": paintData.canvasHeight as AnyObject,
+            "clearFlg": paintData.clearFlg as AnyObject,
+            "elementMode": paintData.elementMode as AnyObject,
             "points": self.convertCGPointsToArrayValue(points: paintData.points),
-            "eraserFlg": paintData.eraserFlg as AnyObject,
             "thickness": paintData.thickness as AnyObject,
             "red": paintData.red as AnyObject,
             "green": paintData.green as AnyObject,
@@ -89,8 +90,9 @@ class NearbyUseCase {
                 
                 let canvasWidth = jsonData.value(forKey: "canvasWidth") as! NSInteger
                 let canvasHeight = jsonData.value(forKey: "canvasHeight") as! NSInteger
+                let clearFlg = jsonData.value(forKey: "clearFlg") as! NSInteger
+                let elementMode = jsonData.value(forKey: "elementMode") as! NSInteger
                 let array = jsonData.value(forKey: "points") as! NSArray
-                let eraserFlg = jsonData.value(forKey: "eraserFlg") as! NSInteger
                 let thickness = jsonData.value(forKey: "thickness") as! NSInteger
                 let red = jsonData.value(forKey: "red") as! NSInteger
                 let green = jsonData.value(forKey: "green") as! NSInteger
@@ -99,16 +101,17 @@ class NearbyUseCase {
                 
                 print("canvasWidth : " + canvasWidth.description)
                 print("canvasHeight : " + canvasHeight.description)
+                print("clearFlg : " + clearFlg.description)
+                print("elementMode : " + elementMode.description)
                 print("array : " + array.count.description)
                 print(array)
-                print("eraserFlg : " + eraserFlg.description)
                 print("thickness : " + thickness.description)
                 print("red : " + red.description)
                 print("green : " + green.description)
                 print("blue : " + blue.description)
                 print("alpha : " + alpha.description)
                 
-                let paintData = PaintData(width: canvasWidth, height: canvasHeight, points: self.convertJSONToCGPoints(list: array), eraser: eraserFlg, thickness: thickness, red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha))
+                let paintData = PaintData(width: canvasWidth, height: canvasHeight, clearFlg: clearFlg, elementMode: elementMode, points: self.convertJSONToCGPoints(list: array), thickness: thickness, red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha))
                 print(paintData.points)
                 
                 self.delegate?.subscribe(paintData: paintData)

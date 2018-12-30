@@ -22,6 +22,18 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
     
     private static let UserDefaultThicnessKey = "thickness"
     
+    @IBOutlet weak var increaseThicnessButton: UIButton!
+    
+    @IBOutlet weak var reduceThicknessButton: UIButton!
+    
+    @IBOutlet weak var squareButton: UIButton!
+    
+    @IBOutlet weak var rectangleButton: UIButton!
+    
+    @IBOutlet weak var eraserButton: UIButton!
+    
+    var buttons: [UIButton] = []
+    
     @IBAction func onTappedClear(_ sender: Any) {
         paintView.clearView()
         nearbyUseCase.publish(paintData: PaintData(width: 0, height: 0, clearFlg: 1, elementMode: 0, points: [], thickness: 0, red: 0, green: 0, blue: 0, alpha: 0))
@@ -29,22 +41,27 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
     
     @IBAction func onTappedBrush(_ sender: Any) {
         addThickness(value: 1)
+        setButtonBackground(button: increaseThicnessButton)
     }
     
     @IBAction func onTappedBrushThin(_ sender: Any) {
         addThickness(value: -1)
+        setButtonBackground(button: reduceThicknessButton)
     }
     
     @IBAction func onTappedSquare(_ sender: Any) {
         paintView.setElementMode(elementMode: .MODE_STAMP_SQUARE)
+        setButtonBackground(button: squareButton)
     }
     
     @IBAction func onTappedRectangle(_ sender: Any) {
         paintView.setElementMode(elementMode: .MODE_STAMP_RECTANGLE)
+        setButtonBackground(button: rectangleButton)
     }
     
     @IBAction func onTappedEraser(_ sender: Any) {
         paintView.setElementMode(elementMode: .MODE_ERASER)
+        setButtonBackground(button: eraserButton)
     }
     
     @IBAction func onTappedSave(_ sender: Any) {
@@ -76,6 +93,9 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
         paintView.delegate = self
         nearbyUseCase.delegate = self
         nearbyUseCase.subscribe()
+        
+        initButtons()
+        setButtonBackground(button: increaseThicnessButton)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -99,6 +119,26 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
         let thickness = paintView.addThickness(value: value)
         thicknessNumberLabel.text = String(thickness)
         UserDefaults.standard.set(thickness, forKey: ViewController.UserDefaultThicnessKey)
+    }
+    
+    private func initButtons() {
+        buttons.append(increaseThicnessButton)
+        buttons.append(reduceThicknessButton)
+        buttons.append(squareButton)
+        buttons.append(rectangleButton)
+        buttons.append(eraserButton)
+        
+        for button in buttons {
+            button.layer.cornerRadius = 8
+        }
+    }
+    
+    private func setButtonBackground(button: UIButton) {
+        for button in buttons {
+            button.backgroundColor = UIColor.clear
+        }
+        
+        button.backgroundColor = UIColor.lightGray
     }
     
 }

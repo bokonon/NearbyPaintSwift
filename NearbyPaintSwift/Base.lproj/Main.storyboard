@@ -28,8 +28,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Capture success" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-pM-OzU" customClass="DisappearLabel" customModule="NearbyPaintSwift" customModuleProvider="target">
-                                        <rect key="frame" x="80" y="498.5" width="183.5" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture success" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-pM-OzU" customClass="DisappearLabel" customModule="NearbyPaintSwift" customModuleProvider="target">
+                                        <rect key="frame" x="80" y="462.5" width="183.5" height="42.5"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,7 +43,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fgg-pM-OzU" secondAttribute="bottom" constant="36" id="Mcm-Gu-oU5"/>
+                                    <constraint firstAttribute="bottom" secondItem="fgg-pM-OzU" secondAttribute="bottom" constant="56" id="Mcm-Gu-oU5"/>
                                     <constraint firstItem="6IB-k1-Psf" firstAttribute="centerY" secondItem="5oZ-gt-vMn" secondAttribute="centerY" id="PHQ-kv-UOh"/>
                                     <constraint firstItem="6IB-k1-Psf" firstAttribute="centerX" secondItem="5oZ-gt-vMn" secondAttribute="centerX" id="gIu-zl-esZ"/>
                                     <constraint firstItem="fgg-pM-OzU" firstAttribute="centerX" secondItem="5oZ-gt-vMn" secondAttribute="centerX" id="iMI-p4-iNk"/>
@@ -55,58 +55,59 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3EG-YP-vMS" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="480" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a1-wv-0sv">
+                                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a1-wv-0sv" userLabel="Clear Button">
                                                 <rect key="frame" x="0.0" y="4" width="52" height="52"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="clear"/>
+                                                <state key="normal" image="clear"/>
                                                 <connections>
                                                     <action selector="onTappedClear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9PM-Xt-6G1"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ts4-nJ-BjB">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ts4-nJ-BjB" userLabel="Increase Thickness Button">
                                                 <rect key="frame" x="60" y="4" width="52" height="52"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="brush"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="brush"/>
                                                 <connections>
                                                     <action selector="onTappedBrush:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tsh-VK-a0Q"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akc-TN-UdM">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akc-TN-UdM" userLabel="Reduce Thickness Button">
                                                 <rect key="frame" x="120" y="4" width="52" height="52"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="brush_thin"/>
+                                                <state key="normal" image="brush_thin"/>
                                                 <connections>
                                                     <action selector="onTappedBrushThin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lo4-jF-hYl"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykc-cd-VdH">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykc-cd-VdH" userLabel="Square Button">
                                                 <rect key="frame" x="180" y="4" width="52" height="52"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="square"/>
+                                                <state key="normal" image="square"/>
                                                 <connections>
                                                     <action selector="onTappedSquare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6XN-Vv-17m"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9Z-U1-gNH">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9Z-U1-gNH" userLabel="Rectangle Button">
                                                 <rect key="frame" x="240" y="4" width="52" height="52"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="rectangle"/>
+                                                <state key="normal" image="rectangle"/>
                                                 <connections>
                                                     <action selector="onTappedRectangle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q1U-gQ-DrM"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNT-F4-DFa">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNT-F4-DFa" userLabel="Eraser Button">
                                                 <rect key="frame" x="300" y="4" width="52" height="52"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="eraser"/>
+                                                <state key="normal" image="eraser"/>
                                                 <connections>
                                                     <action selector="onTappedEraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OhV-5E-Tmy"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oty-LI-9Wz">
+                                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oty-LI-9Wz" userLabel="Save Button">
                                                 <rect key="frame" x="360" y="4" width="52" height="52"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" image="save"/>
+                                                <state key="normal" image="save"/>
                                                 <connections>
                                                     <action selector="onTappedSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nf9-ja-wNI"/>
                                                 </connections>
@@ -142,7 +143,12 @@
                     </view>
                     <connections>
                         <outlet property="captureResultLabel" destination="fgg-pM-OzU" id="Pii-FK-ad6"/>
+                        <outlet property="eraserButton" destination="DNT-F4-DFa" id="Q6H-7v-wWa"/>
+                        <outlet property="increaseThicnessButton" destination="Ts4-nJ-BjB" id="zzY-Jp-Ppb"/>
                         <outlet property="paintView" destination="5oZ-gt-vMn" id="ke7-1F-QLB"/>
+                        <outlet property="rectangleButton" destination="k9Z-U1-gNH" id="qWP-xV-gKL"/>
+                        <outlet property="reduceThicknessButton" destination="akc-TN-UdM" id="4v5-ns-jwc"/>
+                        <outlet property="squareButton" destination="Ykc-cd-VdH" id="aQa-dW-aNq"/>
                         <outlet property="thicknessNumberLabel" destination="6IB-k1-Psf" id="nE6-Kr-AxA"/>
                     </connections>
                 </viewController>

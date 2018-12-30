@@ -45,6 +45,7 @@ class Line {
         }
         
         UIColor(cgColor: color).setStroke()
+        path.lineWidth = width
         path.stroke()
     }
     

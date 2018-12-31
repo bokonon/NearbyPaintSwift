@@ -42,6 +42,10 @@ class Line {
                     
                 }
             }
+            if (elementMode == .MODE_STAMP_SQUARE
+                || elementMode == .MODE_STAMP_RECTANGLE) {
+                path.close()
+            }
         }
         
         UIColor(cgColor: color).setStroke()

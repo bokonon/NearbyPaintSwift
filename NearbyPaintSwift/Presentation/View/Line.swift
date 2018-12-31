@@ -10,34 +10,47 @@ import UIKit
 
 class Line {
     var points: [CGPoint]
+    var elementMode: ElementMode
     var color :CGColor
     var width: CGFloat
     
-    init(color: CGColor, width: CGFloat){
+    init(elementMode: ElementMode, color: CGColor, width: CGFloat) {
+        self.elementMode = elementMode
         self.color = color
         self.width = width
         self.points = []
     }
     
-    func drawOnContext(context: CGContext){
-        UIGraphicsPushContext(context)
-        
-        context.setStrokeColor(self.color)
-        context.setLineWidth(self.width)
-        context.setLineCap(CGLineCap.round)
-        
-        // Line needs two or more points
+    func draw() {
+        // with UIBezierPath
+        let path = UIBezierPath()
         if self.points.count > 1 {
             for (index, point) in self.points.enumerated() {
                 if index == 0 {
-                    context.move(to: point)
+                    path.move(to: point)
                 } else {
-                    context.addLine(to: point)
+                    if (elementMode == .MODE_ERASER
+                        || elementMode == .MODE_LINE) {
+                        // with addQuadCurve
+                        let prePoint = points[index - 1]
+                        let controllPoint = CGPoint(x: (prePoint.x + point.x) / 2, y: (prePoint.y + point.y) / 2)
+                        path.addQuadCurve(to: point, controlPoint: controllPoint)
+                    } else {
+                        // with addLine
+                        path.addLine(to: point)
+                    }
+                    
                 }
             }
+            if (elementMode == .MODE_STAMP_SQUARE
+                || elementMode == .MODE_STAMP_RECTANGLE) {
+                path.close()
+            }
         }
-        context.strokePath()
         
-        UIGraphicsPopContext()
+        UIColor(cgColor: color).setStroke()
+        path.lineWidth = width
+        path.stroke()
     }
+    
 }

@@ -19,13 +19,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>4</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>for Nearby API</string>
+	<string>An anonymous token is advertised via Bluetooth to discover nearby devices.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>for Nearby API</string>
+	<string>The microphone listens for anonymous tokens from nearby devices.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>for capture image</string>
 	<key>Privacy – Camera Usage Description</key>

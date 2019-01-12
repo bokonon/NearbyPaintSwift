@@ -23,6 +23,8 @@ class NearbyUseCase {
     
     var delegate: NearbyUseCaseDelegate?
     
+    let requestPermissionUseCase = RequestPermissionUseCase()
+    
     func subscribe() {
         print("subscribe")
         subscription = messageManager?.subscription(messageFoundHandler: { (message: GNSMessage?) in
@@ -33,6 +35,22 @@ class NearbyUseCase {
                 print("Lost message: \(String(describing: String(data: content, encoding: String.Encoding.utf8)))")
             } else {
                 print("cannot convert message.content to String")
+            }
+        },
+        paramsBlock: { (params: GNSSubscriptionParams?) in
+            guard let params = params else { return }
+            params.permissionRequestHandler = { (permissionHandler: GNSPermissionHandler?) in
+                // Show your custom dialog here.
+                // Don't forget to call permissionHandler() with true or false when the user dismisses it.
+                let permissionState = GNSPermission.isGranted()
+                print("permissionState : ", permissionState)
+                if (!permissionState) {
+                    self.requestPermissionUseCase.requestPermission(completion: {(success) -> Void in
+                        if (permissionHandler != nil) {
+                            permissionHandler!(success)
+                        }
+                    })
+                }
             }
         })
     }
@@ -62,9 +80,25 @@ class NearbyUseCase {
         
         let strData = json.data(using: String.Encoding.utf8)
         let message = GNSMessage(content: strData)
-        publication = messageManager?.publication(with: message)
+        publication = messageManager?.publication(with: message,
+            paramsBlock: { (params: GNSPublicationParams?) in
+            guard let params = params else { return }
+            params.permissionRequestHandler = { (permissionHandler: GNSPermissionHandler?) in
+                // Show your custom dialog here.
+                // Don't forget to call permissionHandler() with true or false when the user dismisses it.
+                let permissionState = GNSPermission.isGranted()
+                print("permissionState : ", permissionState)
+                if (!permissionState) {
+                    self.requestPermissionUseCase.requestPermission(completion: {(success) -> Void in
+                        if (permissionHandler != nil) {
+                            permissionHandler!(success)
+                        }
+                    })
+                }
+            }
+        })
         
-        print("json : %@", json)
+        print("json : ", json)
     }
     
     func unsubscribe() {
@@ -147,4 +181,5 @@ class NearbyUseCase {
         }
         return valueArray as NSArray
     }
+    
 }

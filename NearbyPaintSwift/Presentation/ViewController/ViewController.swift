@@ -83,8 +83,8 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
         super.viewWillAppear(animated)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         UserDefaults.standard.register(defaults: [ViewController.UserDefaultThicnessKey : 2])
         let thickness = UserDefaults.standard.integer(forKey: ViewController.UserDefaultThicnessKey)
@@ -96,6 +96,11 @@ class ViewController: UIViewController, NearbyUseCaseDelegate, PaintViewDelegate
         
         initButtons()
         setButtonBackground(button: increaseThicnessButton)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

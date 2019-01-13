@@ -38,13 +38,13 @@ class RequestPermissionUseCase {
         let message = "This app requests your consent to access your microphone and location. This is necessary to share paint with nearby devices."
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        let cancelButton = "cancel"
+        let cancelButton = "Cancel"
         let cancelAction = UIAlertAction(title: cancelButton, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
             completion(false)
         })
         alertController.addAction(cancelAction)
         
-        let allowButton = "allow"
+        let allowButton = "Allow"
         let allowAction = UIAlertAction(title: allowButton, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
             completion(true)
         })

@@ -35,20 +35,20 @@ class RequestPermissionUseCase {
     
     private func showPermissionDialog(viewController: UIViewController, completion: @escaping (Bool) -> Void) {
         let title = "Allow Nearby Paint to use Nearby?"
-        let message = "Permission is required to share paint with nearby devices."
+        let message = "This app requests your consent to access your microphone and location. This is necessary to share paint with nearby devices."
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        let allowButton = "allow"
-        let allowAction = UIAlertAction(title: allowButton, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
-            completion(true)
-        })
-        alertController.addAction(allowAction)
-        
-        let cancelButton = "cancel"
+        let cancelButton = "Cancel"
         let cancelAction = UIAlertAction(title: cancelButton, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
             completion(false)
         })
         alertController.addAction(cancelAction)
+        
+        let allowButton = "Allow"
+        let allowAction = UIAlertAction(title: allowButton, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
+            completion(true)
+        })
+        alertController.addAction(allowAction)
         
         viewController.present(alertController, animated: true, completion: nil)
     }

@@ -25,6 +25,8 @@ class NearbyUseCase {
     
     let requestPermissionUseCase = RequestPermissionUseCase()
     
+    var isFirstPermissionRequest = true
+    
     func subscribe() {
         print("subscribe")
         subscription = messageManager?.subscription(messageFoundHandler: { (message: GNSMessage?) in
@@ -44,12 +46,13 @@ class NearbyUseCase {
                 // Don't forget to call permissionHandler() with true or false when the user dismisses it.
                 let permissionState = GNSPermission.isGranted()
                 print("permissionState : ", permissionState)
-                if (!permissionState) {
+                if (!permissionState && self.isFirstPermissionRequest) {
                     self.requestPermissionUseCase.requestPermission(completion: {(success) -> Void in
                         if (permissionHandler != nil) {
                             permissionHandler!(success)
                         }
                     })
+                    self.isFirstPermissionRequest = false
                 }
             }
         })
@@ -88,13 +91,14 @@ class NearbyUseCase {
                 // Don't forget to call permissionHandler() with true or false when the user dismisses it.
                 let permissionState = GNSPermission.isGranted()
                 print("permissionState : ", permissionState)
-                if (!permissionState) {
+                if (!permissionState && self.isFirstPermissionRequest) {
                     self.requestPermissionUseCase.requestPermission(completion: {(success) -> Void in
                         if (permissionHandler != nil) {
                             permissionHandler!(success)
                         }
                     })
                 }
+                self.isFirstPermissionRequest = false
             }
         })
         

@@ -34,8 +34,8 @@ class RequestPermissionUseCase {
     }
     
     private func showPermissionDialog(viewController: UIViewController, completion: @escaping (Bool) -> Void) {
-        let title = "Allow Nearby Paint to use Nearby?"
-        let message = "This app requests your consent to access your microphone and location. This is necessary to share paint with nearby devices."
+        let title = "Allow Nearby Paint to access your location and microphone while using this app?"
+        let message = "This allows us to use your location and microphone to provide you connecting to your nearby devices for sharing paint. We will not use those personal information for any purpose other than connecting to other devices."
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
         let cancelButton = "Cancel"

@@ -10,221 +10,225 @@ import Foundation
 import UIKit
 
 protocol PaintViewDelegate {
-    func onDrawEnd(paintData: PaintData)
+  func onDrawEnd(paintData: PaintData)
 }
 
 class PaintView: UIView {
-    var delegate: PaintViewDelegate?
+  
+  // MARK: - Properties -
+  
+  var delegate: PaintViewDelegate?
+  
+  var lines: [Line] = []
+  var currentLine: Line? = nil
+  
+  var frameWidth: Int!
+  var frameHeight: Int!
+  
+  var downPoint: CGPoint = CGPoint()
+  
+  var elementMode = ElementMode.MODE_LINE
+  var brushColor: CGColor = UIColor.black.cgColor
+  var thickness: Int = 0
+  
+  // init from story board
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)!
     
-    var lines: [Line] = []
-    var currentLine: Line? = nil
+    print("init from story board")
     
-    var frameWidth: Int!
-    var frameHeight: Int!
+    frameWidth = Int(self.frame.width)
+    frameHeight = Int(self.frame.height)
     
-    var downPoint: CGPoint = CGPoint()
+    print("frameWidth : ", frameWidth)
+    print("frameHeight : ", frameHeight)
+  }
+  
+  // init from code
+  override init(frame: CGRect) {
+    super.init(frame: frame)
     
-    var elementMode = ElementMode.MODE_LINE
-    var brushColor: CGColor = UIColor.black.cgColor
-    var thickness: Int = 0
+    print("init from code")
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    downPoint = touches.first!.location(in: self)
+    currentLine = Line(elementMode: elementMode, color: brushColor, width: CGFloat(thickness))
     
-    // init from story board
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        
-        print("init from story board")
-        
-        frameWidth = Int(self.frame.width)
-        frameHeight = Int(self.frame.height)
-        
-        print("frameWidth : ", frameWidth)
-        print("frameHeight : ", frameHeight)
+    switch elementMode {
+    case .MODE_ERASER:
+      fallthrough
+    case .MODE_LINE:
+      currentLine?.points.append(downPoint)
+    case .MODE_STAMP_SQUARE:
+      print("square")
+    case .MODE_STAMP_RECTANGLE:
+      print("rectangle")
+    default:
+      print("default")
+    }
+  }
+  
+  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    let point = touches.first!.location(in: self)
+    
+    switch elementMode {
+    case .MODE_ERASER:
+      fallthrough
+    case .MODE_LINE:
+      self.currentLine?.points.append(point)
+    case .MODE_STAMP_SQUARE:
+      makeSquareStamp(downPoint: downPoint, point: point)
+    case .MODE_STAMP_RECTANGLE:
+      makeRectangleStamp(downPoint: downPoint, point: point)
+    default:
+      print("default")
     }
     
-    // init from code
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        print("init from code")
+    self.setNeedsDisplay()
+  }
+  
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    // Line needs two or more points
+    if currentLine?.points.count ?? 0 > 1 {
+      lines.append(currentLine!)
+      
+      let paintData = PaintData(width: frameWidth, height: frameHeight, clearFlg: 0, elementMode: elementMode.rawValue, points: (currentLine?.points)!, thickness: Int(currentLine!.width), color: brushColor)
+      // post data
+      delegate?.onDrawEnd(paintData: paintData)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        downPoint = touches.first!.location(in: self)
-        currentLine = Line(elementMode: elementMode, color: brushColor, width: CGFloat(thickness))
-        
-        switch elementMode {
-        case .MODE_ERASER:
-            fallthrough
-        case .MODE_LINE:
-            currentLine?.points.append(downPoint)
-        case .MODE_STAMP_SQUARE:
-            print("square")
-        case .MODE_STAMP_RECTANGLE:
-            print("rectangle")
-        default:
-            print("default")
-        }
+    currentLine = nil
+    self.setNeedsDisplay()
+  }
+  
+  // draw
+  override func draw(_ rect: CGRect) {
+    // drawn lines
+    for line in lines {
+      line.draw()
+    }
+    // current line
+    if let line = currentLine {
+      line.draw()
+    }
+  }
+  
+  func updateView(paintData: PaintData) {
+    
+    // eraser
+    if paintData.clearFlg == 1 {
+      clearView()
+      return
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let point = touches.first!.location(in: self)
-        
-        switch elementMode {
-        case .MODE_ERASER:
-            fallthrough
-        case .MODE_LINE:
-            self.currentLine?.points.append(point)
-        case .MODE_STAMP_SQUARE:
-            makeSquareStamp(downPoint: downPoint, point: point)
-        case .MODE_STAMP_RECTANGLE:
-            makeRectangleStamp(downPoint: downPoint, point: point)
-        default:
-            print("default")
-        }
-        
-        self.setNeedsDisplay()
+    let line = Line(elementMode: ElementMode(rawValue: paintData.elementMode) ?? .MODE_LINE, color: paintData.color, width: CGFloat(paintData.thickness))
+    
+    for point in paintData.points {
+      line.points.append(CGPoint(
+        x: point.x / CGFloat(paintData.canvasWidth) * CGFloat(frameWidth),
+        y: point.y / CGFloat(paintData.canvasHeight) * CGFloat(frameHeight)))
+      
+      print("x : " + point.x.description)
+      print("y : " + point.y.description)
+    }
+    lines.append(line)
+    
+    self.setNeedsDisplay()
+  }
+  
+  func clearView() {
+    lines = []
+    
+    self.setNeedsDisplay()
+  }
+  
+  func setElementMode(elementMode: ElementMode) {
+    self.elementMode = elementMode
+    if (elementMode == .MODE_ERASER) {
+      brushColor = UIColor.white.cgColor
+    } else {
+      brushColor = UIColor.black.cgColor
+    }
+  }
+  
+  func addThickness(value: Int) -> Int {
+    thickness += value
+    if (thickness < 1) {
+      thickness = 1
+    }
+    return thickness
+  }
+  
+  func getCapture() -> UIImage? {
+    UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+    drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+    
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return image
+  }
+  
+  private func makeSquareStamp(downPoint: CGPoint, point: CGPoint) {
+    let diffX = point.x - downPoint.x
+    let diffY = point.y - downPoint.y
+    let dx = pow(diffX, 2)
+    let dy = pow(diffY, 2)
+    
+    let radius = sqrt(dx + dy)
+    
+    let topPoint = CGPoint(x: downPoint.x, y: downPoint.y - radius)
+    let pointToTopDiffX = point.x - topPoint.x
+    let pointToTopDiffY = point.y - topPoint.y
+    let pointToTopDx = pow(pointToTopDiffX, 2)
+    let pointToTopDy = pow(pointToTopDiffY, 2)
+    let pointToTopDistance = sqrt(pointToTopDx + pointToTopDy)
+    
+    let ratio = (radius * radius + radius * radius - pointToTopDistance * pointToTopDistance) / ( 2 * radius * radius)
+    var degree = acos(ratio) * CGFloat(180 / Double.pi)
+    
+    if (downPoint.x < point.x) {
+      degree = -degree
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Line needs two or more points
-        if currentLine?.points.count ?? 0 > 1 {
-            lines.append(currentLine!)
-            
-            let paintData = PaintData(width: frameWidth, height: frameHeight, clearFlg: 0, elementMode: elementMode.rawValue, points: (currentLine?.points)!, thickness: Int(currentLine!.width), color: brushColor)
-            // post data
-            delegate?.onDrawEnd(paintData: paintData)
-        }
-        
-        currentLine = nil
-        self.setNeedsDisplay()
-    }
+    let leftTopRadian = (degree + 315) * CGFloat(Double.pi / 180)
+    let newLeftTopX = downPoint.x + radius * cos(leftTopRadian)
+    let newLeftTopY = downPoint.y - radius * sin(leftTopRadian)
+    let newLeftTop = CGPoint(x: newLeftTopX, y: newLeftTopY)
     
-    // draw
-    override func draw(_ rect: CGRect) {
-        // drawn lines
-        for line in lines {
-            line.draw()
-        }
-        // current line
-        if let line = currentLine {
-            line.draw()
-        }
-    }
+    let leftBottomRadian = (degree + 225) * CGFloat(Double.pi / 180)
+    let newLeftBottomX = downPoint.x + radius * cos(leftBottomRadian)
+    let newLeftBottomY = downPoint.y - radius * sin(leftBottomRadian)
+    let newLeftBottom = CGPoint(x: newLeftBottomX, y: newLeftBottomY)
     
-    func updateView(paintData: PaintData) {
-        
-        // eraser
-        if paintData.clearFlg == 1 {
-            clearView()
-            return
-        }
-        
-        let line = Line(elementMode: ElementMode(rawValue: paintData.elementMode) ?? .MODE_LINE, color: paintData.color, width: CGFloat(paintData.thickness))
-        
-        for point in paintData.points {
-            line.points.append(CGPoint(
-                x: point.x / CGFloat(paintData.canvasWidth) * CGFloat(frameWidth),
-                y: point.y / CGFloat(paintData.canvasHeight) * CGFloat(frameHeight)))
-            
-            print("x : " + point.x.description)
-            print("y : " + point.y.description)
-        }
-        lines.append(line)
-        
-        self.setNeedsDisplay()
-    }
+    let rightBottomRadian = (degree + 135) * CGFloat(Double.pi / 180)
+    let newRightBottomX = downPoint.x + radius * cos(rightBottomRadian)
+    let newRightBottomY = downPoint.y - radius * sin(rightBottomRadian)
+    let newRightBottom = CGPoint(x: newRightBottomX, y: newRightBottomY)
     
-    func clearView() {
-        lines = []
-        
-        self.setNeedsDisplay()
-    }
+    let rightTopRadian = (degree + 45) * CGFloat(Double.pi / 180)
+    let newRightTopX = downPoint.x + radius * cos(rightTopRadian)
+    let newRightTopY = downPoint.y - radius * sin(rightTopRadian)
+    let newRightTop = CGPoint(x: newRightTopX, y: newRightTopY)
     
-    func setElementMode(elementMode: ElementMode) {
-        self.elementMode = elementMode
-        if (elementMode == .MODE_ERASER) {
-            brushColor = UIColor.white.cgColor
-        } else {
-            brushColor = UIColor.black.cgColor
-        }
-    }
+    currentLine?.points.removeAll()
+    currentLine?.points.append(newLeftTop)
+    currentLine?.points.append(newLeftBottom)
+    currentLine?.points.append(newRightBottom)
+    currentLine?.points.append(newRightTop)
+    currentLine?.points.append(newLeftTop)
+  }
+  
+  private func makeRectangleStamp(downPoint: CGPoint, point: CGPoint) {
+    let diffX = point.x - downPoint.x
+    let diffY = point.y - downPoint.y
     
-    func addThickness(value: Int) -> Int {
-        thickness += value
-        if (thickness < 1) {
-            thickness = 1
-        }
-        return thickness
-    }
-    
-    func getCapture() -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
-        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-    
-    private func makeSquareStamp(downPoint: CGPoint, point: CGPoint) {
-        let diffX = point.x - downPoint.x
-        let diffY = point.y - downPoint.y
-        let dx = pow(diffX, 2)
-        let dy = pow(diffY, 2)
-        
-        let radius = sqrt(dx + dy)
-        
-        let topPoint = CGPoint(x: downPoint.x, y: downPoint.y - radius)
-        let pointToTopDiffX = point.x - topPoint.x
-        let pointToTopDiffY = point.y - topPoint.y
-        let pointToTopDx = pow(pointToTopDiffX, 2)
-        let pointToTopDy = pow(pointToTopDiffY, 2)
-        let pointToTopDistance = sqrt(pointToTopDx + pointToTopDy)
-        
-        let ratio = (radius * radius + radius * radius - pointToTopDistance * pointToTopDistance) / ( 2 * radius * radius)
-        var degree = acos(ratio) * CGFloat(180 / Double.pi)
-        
-        if (downPoint.x < point.x) {
-            degree = -degree
-        }
-        
-        let leftTopRadian = (degree + 315) * CGFloat(Double.pi / 180)
-        let newLeftTopX = downPoint.x + radius * cos(leftTopRadian)
-        let newLeftTopY = downPoint.y - radius * sin(leftTopRadian)
-        let newLeftTop = CGPoint(x: newLeftTopX, y: newLeftTopY)
-        
-        let leftBottomRadian = (degree + 225) * CGFloat(Double.pi / 180)
-        let newLeftBottomX = downPoint.x + radius * cos(leftBottomRadian)
-        let newLeftBottomY = downPoint.y - radius * sin(leftBottomRadian)
-        let newLeftBottom = CGPoint(x: newLeftBottomX, y: newLeftBottomY)
-        
-        let rightBottomRadian = (degree + 135) * CGFloat(Double.pi / 180)
-        let newRightBottomX = downPoint.x + radius * cos(rightBottomRadian)
-        let newRightBottomY = downPoint.y - radius * sin(rightBottomRadian)
-        let newRightBottom = CGPoint(x: newRightBottomX, y: newRightBottomY)
-        
-        let rightTopRadian = (degree + 45) * CGFloat(Double.pi / 180)
-        let newRightTopX = downPoint.x + radius * cos(rightTopRadian)
-        let newRightTopY = downPoint.y - radius * sin(rightTopRadian)
-        let newRightTop = CGPoint(x: newRightTopX, y: newRightTopY)
-        
-        currentLine?.points.removeAll()
-        currentLine?.points.append(newLeftTop)
-        currentLine?.points.append(newLeftBottom)
-        currentLine?.points.append(newRightBottom)
-        currentLine?.points.append(newRightTop)
-        currentLine?.points.append(newLeftTop)
-    }
-    
-    private func makeRectangleStamp(downPoint: CGPoint, point: CGPoint) {
-        let diffX = point.x - downPoint.x
-        let diffY = point.y - downPoint.y
-        
-        currentLine?.points.removeAll()
-        currentLine?.points.append(CGPoint(x: downPoint.x - diffX, y: downPoint.y - diffY))
-        currentLine?.points.append(CGPoint(x: downPoint.x - diffX, y: downPoint.y + diffY))
-        currentLine?.points.append(CGPoint(x: downPoint.x + diffX, y: downPoint.y + diffY))
-        currentLine?.points.append(CGPoint(x: downPoint.x + diffX, y: downPoint.y - diffY))
-        currentLine?.points.append(CGPoint(x: downPoint.x - diffX, y: downPoint.y - diffY))
-    }
+    currentLine?.points.removeAll()
+    currentLine?.points.append(CGPoint(x: downPoint.x - diffX, y: downPoint.y - diffY))
+    currentLine?.points.append(CGPoint(x: downPoint.x - diffX, y: downPoint.y + diffY))
+    currentLine?.points.append(CGPoint(x: downPoint.x + diffX, y: downPoint.y + diffY))
+    currentLine?.points.append(CGPoint(x: downPoint.x + diffX, y: downPoint.y - diffY))
+    currentLine?.points.append(CGPoint(x: downPoint.x - diffX, y: downPoint.y - diffY))
+  }
 }
+

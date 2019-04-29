@@ -9,9 +9,10 @@
 import UIKit
 
 class CaptureUseCase: NSObject {
-    
-    func capture(image: UIImage, sender: Any, action: Selector) {
-        UIImageWriteToSavedPhotosAlbum(image, sender, action, nil)
-    }
-    
+  
+  func capture(image: UIImage, sender: Any, action: Selector) {
+    UIImageWriteToSavedPhotosAlbum(image, sender, action, nil)
+  }
+  
 }
+
